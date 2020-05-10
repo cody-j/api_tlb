@@ -20,8 +20,8 @@ app.add_middleware(
 )
 
 # routers
+app.include_router(user.router, prefix='/users')
 app.include_router(tweets.router, prefix='/tweets')
-app.include_router(user.router, prefix='/user')
 
 # health check
 @app.get('/')
