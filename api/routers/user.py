@@ -5,7 +5,7 @@ import os
 router = APIRouter()
 
 @router.get('/', status_code=200)
-async def get_user(screen_name, response: Response):
+def get_user(screen_name, response: Response):
     headers = {
         'Accept': 'application/json',
         'Authorization': f'Bearer {os.getenv("AUTH_KEY")}'
@@ -20,7 +20,7 @@ async def get_user(screen_name, response: Response):
 
 
 @router.get('/popular/', status_code=200)
-async def popular():
+def popular():
     return {
         'message': [
             'BillGates',

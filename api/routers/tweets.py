@@ -37,7 +37,7 @@ def get_tweets(screen_name, max_id=None, since_id=None, count=200):
   return requests.get(f'{base}?{params}', headers=headers)
 
 @router.get('/', status_code=200)
-async def tweets(screen_name, response: Response, count=200):
+def tweets(screen_name, response: Response, count=200):
   r = get_tweets(screen_name)
   if r.status_code != 200:
     response.status_code = 401
@@ -47,7 +47,7 @@ async def tweets(screen_name, response: Response, count=200):
 
 
 @router.get('/analyze/', status_code=200)
-async def analyze_tweets(screen_name, response: Response, count=200):
+def analyze_tweets(screen_name, response: Response, count=200):
   r = get_tweets(screen_name)
   
   if r.status_code != 200:

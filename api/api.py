@@ -25,5 +25,5 @@ app.include_router(tweets.router, prefix='/tweets')
 
 # health check
 @app.get('/')
-async def root(status_code=200):
+def root(status_code=200):
     return {'message': 'healthy'}

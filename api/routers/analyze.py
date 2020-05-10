@@ -5,7 +5,7 @@ import os
 router = APIRouter()
 
 @router.get('/', status_code=200)
-async def get_tweets(screen_name, response: Response, count=200):
+def get_tweets(screen_name, response: Response, count=200):
   headers = {
       'Accept': 'application/json',
       'Authorization': f'Bearer {os.getenv("AUTH_KEY")}'
