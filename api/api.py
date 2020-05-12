@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import tweets, user
+from .routers import tweets, user, stocks
 
 # load environment (this dir)
 load_dotenv()
@@ -22,6 +22,7 @@ app.add_middleware(
 # routers
 app.include_router(user.router, prefix='/users')
 app.include_router(tweets.router, prefix='/tweets')
+app.include_router(stocks.router, prefix='/stocks')
 
 # health check
 @app.get('/')
